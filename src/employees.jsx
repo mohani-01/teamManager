@@ -24,7 +24,7 @@ const Employees = ({handleEmpoyeeChange, handleTeamSelectionChange, employees, s
                 {
                 employees.map((employee) =>  (
 
-                    <div id={employee.id} className={( employee.teamName === selectedTeam ? 'card m-1 standout' : 'card m-1')} style={{cursor: "pointer"}} onClick={handleEmpoyeeChange}>
+                    <div key={employee.id} id={employee.id} className={( employee.teamName === selectedTeam ? 'card m-1 standout' : 'card m-1')} style={{cursor: "pointer"}} onClick={handleEmpoyeeChange}>
                     {( employee.gender === 'male') ? <img src={maleProfile} className="card-img-top" alt={employee.fullName } /> : <img src={femaleProfile} className="card-img-top" alt={employee.fullName } />
                        
                     }
