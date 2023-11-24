@@ -1,59 +1,30 @@
-import { useState  } from "react";
-import femaleProfile from './images/femaleProfile.jpg';
-import maleProfile from './images/maleProfile.jpg';
-
-const Employees = ({handleEmpoyeeChange, handleTeamSelectionChange, employees, selectedTeam}) => {
-    
-
+// import { useState  } from "react";
+import Teams from "./Teams";
+import TeamMembers from "./TeamMembers";
+const Employees = ({handleEmployeeChange, handleTeamSelectionChange, employees, selectedTeam}) => {
     return (
         <main className="container">
             <div className="row justify-content-center mt-3 mb-3">
                 <div className="col-6">
-                    <select className="form-select form-select-large" value={selectedTeam} onChange={handleTeamSelectionChange}>
-                        <option value="TeamA">TeamA</option>
-                        <option value="TeamB">TeamB</option>
-                        <option value="TeamC">TeamC</option>
-                        <option value="TeamD">TeamD</option>
-                    </select>
+                    <Teams selectedTeam={selectedTeam} 
+                    handleTeamSelectionChange={handleTeamSelectionChange}/>
                 </div>
-                </div>
+            </div>
             <div className="row justify-content-center mt-3 mb-3">
                 <div className="col-8">
-
                 <div className="card-collection">
-                {
-                employees.map((employee) =>  (
+                    {
 
-                    <div key={employee.id} id={employee.id} className={( employee.teamName === selectedTeam ? 'card m-1 standout' : 'card m-1')} style={{cursor: "pointer"}} onClick={handleEmpoyeeChange}>
-                    {( employee.gender === 'male') ? <img src={maleProfile} className="card-img-top" alt={employee.fullName } /> : <img src={femaleProfile} className="card-img-top" alt={employee.fullName } />
-                       
+                <TeamMembers employees={employees} 
+                             handleEmployeeChange={handleEmployeeChange} 
+                            selectedTeam={selectedTeam}/>
                     }
-                    <div className="card-body">
-                        <h5 className="card-title">Full Name: {employee.fullName} </h5>
-                        <p className="card-text"><b>Designation:</b> {employee.designation} </p>
-                    </div>
-                    </div>
-                    )
-                )}
                 </div>
-
-               
               </div>
             </div>
         </main>
     )
 }
 
-export default Employees
+export default Employees;
 
- // (() => {
-                        //     if (employee.gender === 'female') {
-                        //         return (
-                        //             <img src={femaleProfile}  className="img-top"/>
-                        //         )
-                        //     } else {
-                        //         return (
-                        //             <img src={maleProfile} className="card-img-top" />
-                        //         )
-                        //     }
-                        // })()

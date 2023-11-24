@@ -7,7 +7,7 @@ const Header = ({selectedTeam, teamMemberCount}) => {
                 <div className="col-8">
 
                     <h1>Team Member Alloaction</h1>
-                    <h3>{selectedTeam} has {teamMemberCount} Members </h3>
+                    <h3>{selectedTeam} has {teamMemberCount} { teamMemberCount > 1 ?  "Members" : "Member"}  </h3>
                 </div>
             </div>
         </header>

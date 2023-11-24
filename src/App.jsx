@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect} from 'react';
-import Header from './header';
+import Header from './Header';
 import Footer from './footer';
-import Employees from './employees';
+import Employees from './Employees';
 import GroupedTeamMembers from './GroupedTeamMembers';
 import NotFound from './NotFound';
 import Nav from './Nav';
@@ -94,11 +94,13 @@ function App() {
     useEffect(() => {
       localStorage.setItem('selectedTeam', JSON.stringify(selectedTeam))
     }, [selectedTeam])
+
     function handleTeamSelectionChange(event) {
+        console.log(event.target.value)
             setTeam(event.target.value)
     }
 
-    function handleEmpoyeeChange(event) {
+    function handleEmployeeChange(event) {
                                                                 // check if the employee is the current employee that is click on
         const transformedEmployees = employees.map((employee) => employee.id === parseInt(event.currentTarget.id) ? 
                                                                                     // check if the employee is under the selected team
@@ -121,7 +123,7 @@ function App() {
     <Routes>
         <Route path='/' element={<Employees employees={employees}
                 selectedTeam= {selectedTeam}
-                handleEmpoyeeChange={handleEmpoyeeChange}
+                handleEmployeeChange={handleEmployeeChange}
                 handleTeamSelectionChange={handleTeamSelectionChange}/>}>
         </Route>
         <Route path='/GroupedTeamMembers' element={<GroupedTeamMembers employees={employees} selectedTeam={selectedTeam} setTeam={setTeam}
