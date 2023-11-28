@@ -37,17 +37,16 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setTeam}) => {
         <div className="row justify-content-center mt-3 mb4">
         <div className="col-8">
         <h1>Group Team Members</h1>
-        {
             
-
+            <div className='team-container'> 
+        {
              groupedEmployees.map((item) => {
                  return ( 
-                    <div key={item.team}  id={item.team} className='card mt-2' style={{cursor: "pointer"}} onClick={handleTeamMembers}>
+                    <div key={item.team}  id={item.team} className='card mt-2 border border-dark' style={{cursor: "pointer"}} onClick={handleTeamMembers}>
                         <h4 className='card-header text-secondary bg-white' >
                             Team Name: {item.team}
                         </h4>
                         <div id={"collapse_"+ item.team} className={item.collapsed === true ? "collapse": ""}>
-                            <hr/> 
                             {
                                 item.members.map(member => {
                                     return (
@@ -64,12 +63,12 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setTeam}) => {
                     </div>
                 )  
             }) 
-            
-            }
+        }
+            </div>
         </div>
     </div>
 </main>
     )
 }
 
-export default GroupedTeamMembers
+export default GroupedTeamMembers;

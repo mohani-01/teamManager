@@ -8,7 +8,7 @@ const TeamMemberCard = ({employee, handleEmployeeChange, selectedTeam }) => {
             
             }
             <div className="card-body">
-                <h5 className="card-title">Full Name: {employee.fullName} </h5>
+                <h4 className="card-title">Full Name: {employee.fullName} </h4>
                 <p className="card-text"><b>Designation:</b> {employee.designation} </p>
             </div>
         </div>
