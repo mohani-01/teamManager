@@ -38,7 +38,7 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setTeam}) => {
         <div className="col-8">
         <h1>Group Team Members</h1>
             
-            <div className='team-container'> 
+            <div className='team-container mt-4'> 
         {
              groupedEmployees.map((item) => {
                  return ( 
